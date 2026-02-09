@@ -13,7 +13,7 @@
     ],
     "headers": [
         {
-            "source": "/(.*)",
+            "source": "^/(.*)$",
             "headers": [
                 {
                     "key": "X-Content-Type-Options",
@@ -34,7 +34,7 @@
             ]
         },
         {
-            "source": "/*.css",
+            "source": "^/.*\\.css$",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -43,7 +43,7 @@
             ]
         },
         {
-            "source": "/*.js",
+            "source": "^/.*\\.js$",
             "headers": [
                 {
                     "key": "Cache-Control",
@@ -52,7 +52,7 @@
             ]
         },
         {
-            "source": "/*.png",
+            "source": "^/.*\\.(png|jpg|jpeg|gif|svg|ico)$",
             "headers": [
                 {
                     "key": "Cache-Control",
