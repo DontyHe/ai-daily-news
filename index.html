@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Daily News - 每日AI新闻</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="AI Daily News - 每日更新的人工智能领域最新新闻、论文和技术动态">
+    <meta name="theme-color" content="#6366f1">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">🤖 AI Daily News</h1>
+                <div class="nav-links">
+                    <a href="#news" class="active">新闻</a>
+                    <a href="#papers">论文</a>
+                    <a href="#tools">工具</a>
+                    <a href="#about">关于</a>
+                </div>
+                <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle dark mode">
+                    🌙
+                </button>
+            </div>
+        </nav>
+        <section class="hero">
+            <div class="container">
+                <h2>🚀 探索AI前沿</h2>
+                <p>每日更新最新的人工智能新闻、论文和技术动态</p>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 搜索新闻、论文或主题...">
+                    <button id="searchBtn">搜索</button>
+                </div>
+                <div class="date-display" id="currentDate"></div>
+            </div>
+        </section>
+    </header>
+
+    <main class="container">
+        <section id="news" class="section">
+            <div class="section-header">
+                <h3>📰 今日AI新闻</h3>
+                <div class="filter-tags" id="newsFilters">
+                    <button class="filter-tag active" data-category="all">全部</button>
+                    <button class="filter-tag" data-category="llm">大语言模型</button>
+                    <button class="filter-tag" data-category="robotics">机器人</button>
+                    <button class="filter-tag" data-category="cv">计算机视觉</button>
+                    <button class="filter-tag" data-category="nlp">NLP</button>
+                </div>
+            </div>
+            <div class="news-grid" id="newsGrid">
+                <!-- News items will be loaded dynamically -->
+                <div class="loading-spinner"></div>
+            </div>
+            <div class="load-more-container">
+                <button id="loadMoreNews" class="load-more-btn">加载更多新闻</button>
+            </div>
+        </section>
+
+        <section id="papers" class="section">
+            <div class="section-header">
+                <h3>📚 最新AI论文</h3>
+                <select id="paperSort" class="sort-select">
+                    <option value="date">按日期排序</option>
+                    <option value="citations">按引用数</option>
+                    <option value="trending">按热度</option>
+                </select>
+            </div>
+            <div class="papers-grid" id="papersGrid">
+                <!-- Papers will be loaded dynamically -->
+                <div class="loading-spinner"></div>
+            </div>
+            <div class="load-more-container">
+                <button id="loadMorePapers" class="load-more-btn">加载更多论文</button>
+            </div>
+        </section>
+
+        <section id="tools" class="section">
+            <h3>🛠️ AI工具推荐</h3>
+            <div class="tools-grid" id="toolsGrid">
+                <div class="tool-card">
+                    <div class="tool-icon">💬</div>
+                    <h4>ChatGPT</h4>
+                    <p>OpenAI的对话式AI助手，支持多模态交互</p>
+                    <a href="https://chat.openai.com" target="_blank" class="tool-link">访问</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🎨</div>
+                    <h4>Midjourney</h4>
+                    <p>强大的AI图像生成工具</p>
+                    <a href="https://www.midjourney.com" target="_blank" class="tool-link">访问</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">✍️</div>
+                    <h4>Claude</h4>
+                    <p>Anthropic开发的AI助手，擅长长文本处理</p>
+                    <a href="https://claude.ai" target="_blank" class="tool-link">访问</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">💻</div>
+                    <h4>GitHub Copilot</h4>
+                    <p>AI编程助手，支持多种编程语言</p>
+                    <a href="https://github.com/features/copilot" target="_blank" class="tool-link">访问</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🎬</div>
+                    <h4>Sora</h4>
+                    <p>OpenAI的AI视频生成模型</p>
+                    <a href="https://openai.com/sora" target="_blank" class="tool-link">访问</a>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-icon">🎵</div>
+                    <h4>Suno</h4>
+                    <p>AI音乐生成工具</p>
+                    <a href="https://suno.ai" target="_blank" class="tool-link">访问</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="about-content">
+                <h3>ℹ️ 关于AI Daily News</h3>
+                <p>AI Daily News 是一个致力于收集和分享人工智能领域最新动态的平台。我们每日更新：</p>
+                <ul>
+                    <li>🚀 AI行业重大新闻和突破</li>
+                    <li>📚 最新发布的AI研究论文</li>
+                    <li>🛠️ 好用的AI工具和应用</li>
+                    <li>💡 技术趋势和发展方向</li>
+                </ul>
+                <div class="features">
+                    <div class="feature">
+                        <span class="feature-icon">⚡</span>
+                        <span>实时更新</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🎯</span>
+                        <span>精准筛选</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📱</span>
+                        <span>响应式设计</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🌙</span>
+                        <span>深色模式</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>🤖 AI Daily News</h4>
+                    <p>每日更新AI领域最新动态</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <a href="#news">新闻</a>
+                    <a href="#papers">论文</a>
+                    <a href="#tools">工具</a>
+                </div>
+                <div class="footer-section">
+                    <h4>订阅更新</h4>
+                    <form id="subscribeForm" class="subscribe-form">
+                        <input type="email" placeholder="输入邮箱订阅" required>
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Daily News. All rights reserved.</p>
+                <p>Built with ❤️ using HTML, CSS, and JavaScript</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">⬆️</button>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
